@@ -15,8 +15,8 @@ while True:
 
     ventana = np.zeros(frame.shape, np.uint8)
     small = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
-    ventana[:height//2, :width//2] = small #parte superior izquierda
-    ventana[:height//2, width//2:] = small #parte superior derecha
+    ventana[:height//2, :width//2] = cv2.rotate(small, cv2.ROTATE_180) #parte superior izquierda
+    ventana[:height//2, width//2:] = cv2.rotate(small, cv2.ROTATE_180) #parte superior derecha
     ventana[height//2:, :width//2] = small #parte inferior izquierda
     ventana[height//2:, width//2:] = small #parte inferior derecha
 
