@@ -43,4 +43,7 @@ Se ocupan para liberar el buffer de memoria ram de la variable y cerrar la aplic
 
 ### Complemento
 Usamos flip para invertir la camara y que no se vea como espejo
+    
     frame = cv2.flip(frame, 1)
+
+
