@@ -8,12 +8,14 @@ while True:
     if not ret:
         break
 
-    frame = cv2.resize(frame, (800, 600))
+    frame = cv2.resize(frame, (1000, 800))
     frame = cv2.flip(frame, 1)
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    corners = cv2.goodFeaturesToTrack(gray, 800, 0.01, 10)
+    cv2.imshow('Escala gris', cv2.resize(gray, (300, 200)))
+
+    corners = cv2.goodFeaturesToTrack(gray, 900, 0.01, 4)
 
     # Crear fondo negro
     black = np.zeros_like(frame)
@@ -24,7 +26,7 @@ while True:
         # Dibujar puntos
         for corner in corners:
             x, y = corner.ravel()
-            cv2.circle(black, (x, y), 3, (255, 255, 255), -1)
+            cv2.circle(black, (x, y), 2, (0, 255, 0), -1)
 
     cv2.imshow('Frame', black)
 

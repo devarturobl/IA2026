@@ -28,7 +28,7 @@ cv2.imshow('Imagen rotada 90 grados antihorario', rotar2)
 cv2.imwrite('storage/img_save.png', rotar2)
 
 #Esperar a que se pulse una tecla
-cv2.waitKey(1000)  
+cv2.waitKey(10000)  
 #Cerrar la ventana
 cv2.destroyAllWindows() 
 

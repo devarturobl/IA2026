@@ -72,3 +72,48 @@ Este documento describe los archivos `.py` presentes en el directorio `Semana6` 
 ---
 
 Con esta documentación tendrás un panorama claro del propósito y la estructura de cada archivo Python en este subdirectorio.
+
+## 3. `contornosvid.py`
+
+**Propósito**: Leer de la cámara web, detectar esquinas en cada fotograma y mostrar solamente los puntos detectados sobre un fondo negro.
+
+**Descripción**:
+- Se inicia `cv2.VideoCapture(0)` para abrir la cámara predeterminada.
+- En cada iteración del bucle:
+  1. Se captura un fotograma (`ret, frame`) y, si falla, se sale del bucle.
+  2. Se redimensiona el fotograma a 800x600 píxeles y se voltea horizontalmente (`cv2.flip` con 1).
+  3. Se convierte a escala de grises (`cv2.cvtColor`).
+  4. Se detectan hasta 800 esquinas con `cv2.goodFeaturesToTrack`.
+  5. Se crea una imagen negra (`np.zeros_like(frame)`) del mismo tamaño que el fotograma original.
+  6. Si se detectaron esquinas (no es `None`), se convierten los puntos a enteros (`np.intp`) y se dibujan círculos blancos en el fondo negro.
+  7. Se muestra la ventana con el resultado y se cierra todo al presionar `q`.
+
+**Características**:
+- El resultado no incluye el fotograma original, solo los puntos sobre fondo negro.
+- Maneja el caso en que `goodFeaturesToTrack` devuelva `None` (no genera errores si no se detectan esquinas).
+- Al finalizar libera la cámara (`cap.release()`) y cierra las ventanas (`cv2.destroyAllWindows()`).
+
+---// filepath: d:\Documentos\Semestre Enero 2026\InteligenciaA\Unidad 2\Semana6\documentacion_codigo.md
+## 4. `contornosvid.py alter`
+
+**Propósito**: Leer de la cámara web, detectar esquinas en cada fotograma y mostrar solamente los puntos detectados sobre un fondo negro.
+
+**Descripción**:
+- Se inicia `cv2.VideoCapture(0)` para abrir la cámara predeterminada.
+- En cada iteración del bucle:
+  1. Se captura un fotograma (`ret, frame`) y, si falla, se sale del bucle.
+  2. Se redimensiona el fotograma a 800x600 píxeles y se voltea horizontalmente (`cv2.flip` con 1).
+  3. Se convierte a escala de grises (`cv2.cvtColor`).
+  4. Se detectan hasta 800 esquinas con `cv2.goodFeaturesToTrack`.
+  5. Se crea una imagen negra (`np.zeros_like(frame)`) del mismo tamaño que el fotograma original.
+  6. Si se detectaron esquinas (no es `None`), se convierten los puntos a enteros (`np.intp`) y se dibujan círculos blancos en el fondo negro.
+  7. Se muestra la ventana con el resultado y se cierra todo al presionar `q`.
+
+![alt bordes](image.png)
+
+**Características**:
+- El resultado no incluye el fotograma original, solo los puntos sobre fondo negro.
+- Maneja el caso en que `goodFeaturesToTrack` devuelva `None` (no genera errores si no se detectan esquinas).
+- Al finalizar libera la cámara (`cap.release()`) y cierra las ventanas (`cv2.destroyAllWindows()`).
+
+---
