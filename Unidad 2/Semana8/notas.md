@@ -15,4 +15,4 @@ El programa está diseñado para ser ligero y apto para aplicaciones de visión 
 La tarea de MediaPipe Hand Landmarker te permite detectar los puntos de referencia de las manos en una imagen. Puedes usar esta tarea para ubicar puntos clave de las manos y renderizar efectos visuales en ellas. Esta tarea opera en datos de imagen con un modelo de aprendizaje automático (AA) como datos estáticos o una transmisión continua, y genera puntos de referencia de la mano en coordenadas de imagen, puntos de referencia de la mano en coordenadas mundiales y lateralidad(mano izquierda o derecha) de varias manos detectadas.
 ![Puntos de la mano](image-1.png)
 
-
+![Tabla de puntos](image-2.png)
